@@ -1,0 +1,35 @@
+<%- include("header") %>
+<main class="annonce ui main container segment">
+<h2><%= annonce[0].titre %></h2>
+<article>
+    <img src="/assets/image/<%= annonce[0].photo %>" alt="">
+    </article>
+<article>
+<p>
+   <h4>Catégorie:</h4> <%= categorie %>
+</p>
+<p>
+    <h4>Etat:</h4> <%= etat %>
+</p>
+<p>
+    <h4>Description: </h4> <%= annonce[0].description %> 
+</p>
+<p>
+    <h4>Prix: </h4> <%= annonce[0].prix %>€ 
+</p>
+<p>
+    <h4>Localisation: </h4> <%= annonce[0].localisation %> 
+</p>
+<p>
+    <h4>Email: </h4> <%= annonce[0].email %> 
+</p>
+<p>
+    <h4>Telephone: </h4> <%= annonce[0].tel %> 
+</p>
+</article>
+<section>
+    <a href="/modifier_annonce/<%= annonce[0].id %> " class="ui button green">Modifier</a>
+    <a  onClick="return confirm('Êtes-vous sûr de vouloir supprimer cette annonce ?')" href="/supprimer_annonce/<%= annonce[0].id  %>" class="ui button red">Supprimer</a>
+</section>
+</main>
+<%- include("footer") %>

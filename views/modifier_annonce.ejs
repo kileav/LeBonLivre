@@ -1,0 +1,63 @@
+<%- include("header") %>
+<main class="ui main container segment" id="depot">
+<form method="post" class="ui form" encType="multipart/form-data">
+    <h2 class="ui dividing header">Modifier une annonce</h2>
+    <div class="field">
+        <label for="titre">Titre de l'annonce</label>
+        <div class="field">
+            <input type="text" name="titre" id="titre" value="<%= annonce[0].titre %> ">
+        </div>
+    </div>
+    <div class="two fields">
+        <div class="field">
+            <label for="categorie">Choisissez la catégorie</label>
+            <select class="ui fluid dropdown" name="categorie" id="categorie">
+            <% for (categorie of categories) { %>
+            <option value="<%= categorie.id %>" <% if(annonce[0].categorie_id == categorie.id) { %> selected <% } %> ><%= categorie.categorie %></option>
+            <% } %>
+            </select>
+        </div>
+        <div class="field">
+            <label for="etat">Etat du livre</label>
+            <select class="ui fluid dropdown" name="etat" id="etat">
+            <% for (etat of etats) { %>
+            <option value="<%= etat.id %>" <% if(annonce[0].etat_id == etat.id) { %> selected <% } %>> <%= etat.etat %></option>
+            <% } %> 
+    </select>
+    </div>
+    </div>
+        <div class="field">
+            <textarea name="description" id="description"><%= annonce[0].description %></textarea>
+        </div>
+    <div class="two fields">
+        <div class="field">
+            <label for="prix">Indiquez votre prix</label>
+                <input type="number" name="prix" value="<%= annonce[0].prix %>" id="prix">
+            </div>
+        <div class="field">
+                <label for="photo">Ajoutez des photos</label>
+            <input type="file" accept="image/*" name="photo" value="<%= annonce[0].photo %>"  id="photo">
+        </div>
+    </div>
+    <div class="field">
+        <label for="localisation">Ou se situe le livre</label>
+        <div class="field">
+            <input type="text" name="localisation" value="<%= annonce[0].localisation %>" id="localisation">
+        </div>
+    </div>
+    <div class="field">
+        <label for="coordonnee">Vos coordonnées</label>
+        <div class="two fields">
+            <div class="field">
+                <input type="email" name="email" id="email" value="<%= annonce[0].email %>">
+            </div>
+            <div class="field">
+            <input type="tel" name="tel" id="tel" value="<%= annonce[0].tel %>">
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="ui primary button">Modifier l'annonce</button>
+</form>
+</main>
+<%- include("footer") %>
+    

@@ -1,0 +1,63 @@
+<%- include("header") %>
+<main class="ui main container segment" id="depot">
+<form method="post" class="ui form" encType="multipart/form-data">
+    <h2 class="ui dividing header">Déposer une annonce</h2>
+    <div class="field">
+        <label for="titre">Titre de l'annonce</label>
+        <div class="field">
+            <input type="text" name="titre" id="titre">
+        </div>
+    </div>
+    <div class="two fields">
+        <div class="field">
+            <label for="categorie">Choisissez la catégorie</label>
+            <select class="ui fluid dropdown" name="categorie" id="categorie">
+            <% for (categorie of categories) { %>
+                <option value="<%= categorie.id %>"><%= categorie.categorie %></option>
+            <% } %>
+            </select>
+        </div>
+        <div class="field">
+            <label for="etat">Etat du livre</label>
+            <select class="ui fluid dropdown" name="etat" id="etat">
+            <% for (etat of etats) { %>
+                <option value="<%= etat.id %>"><%= etat.etat %></option>
+            <% } %> 
+    </select>
+    </div>
+    </div>
+        <div class="field">
+            <textarea name="description" id="description" placeholder="Déscription du livre"></textarea>
+        </div>
+    <div class="two fields">
+        <div class="field">
+            <label for="prix">Indiquez votre prix</label>
+                <input type="number" required name="prix" id="prix">
+            </div>
+        <div class="field">
+                <label for="photo">Ajoutez des photos</label>
+            <input type="file" accept="image/*" name="photo" required id="photo">
+        </div>
+    </div>
+    <div class="field">
+        <label for="localisation">Ou se situe le livre</label>
+        <div class="field">
+            <input type="text" name="localisation" id="localisation">
+        </div>
+    </div>
+    <div class="field">
+        <label for="coordonnee">Vos coordonnées</label>
+        <div class="two fields">
+            <div class="field">
+                <input type="email" name="email" id="email" placeholder="Votre Email">
+            </div>
+            <div class="field">
+            <input type="tel" name="tel" id="tel" required placeholder="Votre telephone">
+            </div>
+        </div>
+    </div>
+    <button type="submit" class="ui primary button">Déposer l'annonce</button>
+</form>
+</main>
+<%- include("footer") %>
+    

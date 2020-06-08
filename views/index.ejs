@@ -1,0 +1,22 @@
+<%- include("header") %>
+<main class="ui main container segment">
+<div class="ui unstackable items">
+    <% for (annonce of annonces) { %> 
+    <div class="item">
+      <div class="image">
+        <img src="/assets/image/<%= annonce.photo %>">
+      </div>
+      <div class="content">
+        <a href="/annonce/<%= annonce.id %>" class="header"><%= annonce.titre %></a>
+        <div class="meta">
+          <span><%= annonce.description %> </span>
+        </div>
+        <div class="description">
+          <p></p>
+        </div>
+        <div class="extra"><%= annonce.prix %> €</div>
+      </div>
+    </div>
+<% } %>
+</main>
+<%- include("footer") %>
